@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 
 import { CORE_CONCEPTS } from "./data";
 import { EXAMPLES } from "./data";
@@ -28,7 +28,8 @@ function App() {
   }
 
   return (
-    <div>
+    // <Fragment>
+    <>
       {/* <Header></Header> */}
       <Header />
       <main>
@@ -96,7 +97,8 @@ function App() {
           {tabContent}
         </section>
       </main>
-    </div>
+      </>
+    // </Fragment>
   );
 }
 
