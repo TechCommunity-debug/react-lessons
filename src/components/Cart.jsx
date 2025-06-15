@@ -1,4 +1,13 @@
-export default function Cart({ items, onUpdateItemQuantity }) {
+import { useContext } from "react";
+// import { use } from "react";
+
+import { CartContext } from "../store/shopping-cart-context";
+
+export default function Cart({ onUpdateItemQuantity }) {
+  const { items } = useContext(CartContext);
+  // const cartCtx = useContext(CartContext);
+  // const cartCtx = use(CartContext);
+
   const totalPrice = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -7,6 +16,7 @@ export default function Cart({ items, onUpdateItemQuantity }) {
 
   return (
     <div id="cart">
+      {/* {cartCtx.items.length === 0 && <p>No items in cart!</p>} */}
       {items.length === 0 && <p>No items in cart!</p>}
       {items.length > 0 && (
         <ul id="cart-items">
