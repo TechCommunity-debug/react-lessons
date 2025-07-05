@@ -4,7 +4,7 @@ import { OpinionsContext } from "../store/opinions-context";
 export function NewOpinion() {
   const { addOpinion } = use(OpinionsContext);
 
-  function shareOpinionAction(prevFormState, formData) {
+  async function shareOpinionAction(prevFormState, formData) {
     const title = formData.get("title");
     const body = formData.get("body");
     const userName = formData.get("userName");
@@ -33,7 +33,7 @@ export function NewOpinion() {
       };
     }
 
-    addOpinion({
+    await addOpinion({
       title,
       body,
       userName,
