@@ -1,41 +1,18 @@
-import { useState } from 'react';
-
 export default function Signup() {
-
-  const [passwordAreNotEqual, setPasswordAreNotEqual] = useState(false);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const fd = new FormData(event.target);
-    // const enteredEmail = fd.get("email");
-    // const enteredPassword = fd.get("password");
-    const acquisitionChannel = fd.getAll("acquisition");
-    const data = Object.fromEntries(fd);
-    data.acquisition = acquisitionChannel;
-    Object.fromEntries(fd);4
-
-    if (data['password'] !== data['confirm-password']) {
-      setPasswordAreNotEqual(true);
-      return;
-    }
-    console.log('data :>> ', data);
-  }
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <h2>Welcome on board!</h2>
       <p>We just need a little bit of data from you to get you started 🚀</p>
 
       <div className="control">
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" name="email" required/>
+        <input id="email" type="email" name="email" />
       </div>
 
       <div className="control-row">
         <div className="control">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" required minLength={6}/>
+          <input id="password" type="password" name="password" />
         </div>
 
         <div className="control">
@@ -44,28 +21,27 @@ export default function Signup() {
             id="confirm-password"
             type="password"
             name="confirm-password"
-            required
           />
         </div>
-        <div className='control-error'>{passwordAreNotEqual && <p>Passwords must match.</p>}</div>
       </div>
+
       <hr />
 
       <div className="control-row">
         <div className="control">
           <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" name="first-name" required/>
+          <input type="text" id="first-name" name="first-name" />
         </div>
 
         <div className="control">
           <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" name="last-name" required/>
+          <input type="text" id="last-name" name="last-name" />
         </div>
       </div>
 
       <div className="control">
         <label htmlFor="phone">What best describes your role?</label>
-        <select id="role" name="role" required>
+        <select id="role" name="role">
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
           <option value="employee">Employee</option>
@@ -104,7 +80,7 @@ export default function Signup() {
 
       <div className="control">
         <label htmlFor="terms-and-conditions">
-          <input type="checkbox" id="terms-and-conditions" name="terms" required/>I
+          <input type="checkbox" id="terms-and-conditions" name="terms" />I
           agree to the terms and conditions
         </label>
       </div>
@@ -113,9 +89,7 @@ export default function Signup() {
         <button type="reset" className="button button-flat">
           Reset
         </button>
-        <button type="submit" className="button">
-          Sign up
-        </button>
+        <button className="button">Sign up</button>
       </p>
     </form>
   );
