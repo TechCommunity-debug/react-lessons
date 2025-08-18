@@ -3,7 +3,7 @@ import HomePage from "./pages/Home";
 import ProductsPage from "./pages/product";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
-import ProductsetailsPage from "./pages/ProductDetail";
+import ProductsDetailsPage from "./pages/ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -11,9 +11,9 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/products", element: <ProductsPage /> },
-      { path: "/products/:productId", element: <ProductsetailsPage /> },
+      { path: "", element: <HomePage /> },
+      { path: "products", element: <ProductsPage /> },
+      { path: "products/:productId", element: <ProductsDetailsPage /> },
     ],
   },
 ]);
