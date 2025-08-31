@@ -1,18 +1,27 @@
-import { useIsFetching } from "@tanstack/react-query";
+import { useState } from 'react';
 
-export default function Header({ children }) {
-  const fetching = useIsFetching();
+import NewChallenge from './NewChallenge.jsx';
+
+export default function Header() {
+  const [isCreatingNewChallenge, setIsCreatingNewChallenge] = useState();
+
+  function handleStartAddNewChallenge() {
+    setIsCreatingNewChallenge(true);
+  }
+
+  function handleDone() {
+    setIsCreatingNewChallenge(false);
+  }
 
   return (
     <>
-      <div id="main-header-loading">
-        {fetching > 0 && <progress />}
-      </div>
+      {isCreatingNewChallenge && <NewChallenge onDone={handleDone} />}
+
       <header id="main-header">
-        <div id="header-title">
-          <h1>React Events</h1>
-        </div>
-        <nav>{children}</nav>
+        <h1>Your Challenges</h1>
+        <button onClick={handleStartAddNewChallenge} className="button">
+          Add Challenge
+        </button>
       </header>
     </>
   );
