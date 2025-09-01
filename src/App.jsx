@@ -7,7 +7,7 @@ function App() {
       <section>
         <h2>Why work with us?</h2>
         <Accordian className="accordian">
-          <AccordianItem className="accordian-item" title="We got 20 years of experience">
+          <AccordianItem id="experience" className="accordian-item" title="We got 20 years of experience">
             <article>
               <p>You can&apos;t go wrong with us.</p>
             <p>
@@ -17,7 +17,7 @@ function App() {
             </p>
             </article>
           </AccordianItem>
-          <AccordianItem className="accordian-item" title="2. We got 20 years of experience">
+          <AccordianItem id="2" className="accordian-item" title="2. We got 20 years of experience">
             <article>
               <p>2. You can&apos;t go wrong with us.</p>
             <p>
